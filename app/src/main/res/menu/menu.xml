@@ -27,6 +27,11 @@
         android:layout_height="wrap_content"
         android:title="@string/item_acerca_de" />
     <item
+        android:id="@+id/item_estadisticas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="@string/estadisticas" />
+    <item
         android:id="@+id/item_exit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

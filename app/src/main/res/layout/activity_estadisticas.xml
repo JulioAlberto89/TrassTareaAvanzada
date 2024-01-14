@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".actividades.EstadisticasActivity">
+
+    <TextView
+        android:id="@+id/tvNumAct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:text="Número de tareas:"
+        app:layout_constraintBottom_toTopOf="@+id/tvNumPrio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNumActDato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/tvNumPrioDato"
+        app:layout_constraintStart_toEndOf="@+id/tvNumAct"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNumPrio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tareas prioritarias:"
+        app:layout_constraintBottom_toTopOf="@+id/tvNumTerminadas"
+        app:layout_constraintStart_toStartOf="@+id/tvNumAct"
+        app:layout_constraintTop_toBottomOf="@+id/tvNumAct" />
+
+    <TextView
+        android:id="@+id/tvNumPrioDato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/tvNumTerminadasDato"
+        app:layout_constraintEnd_toEndOf="@+id/tvNumActDato"
+        app:layout_constraintTop_toBottomOf="@+id/tvNumActDato" />
+
+    <TextView
+        android:id="@+id/tvNumTerminadas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tareas terminadas:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvNumPrio"
+        app:layout_constraintTop_toBottomOf="@+id/tvNumPrio" />
+
+    <TextView
+        android:id="@+id/tvNumTerminadasDato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvNumPrioDato"
+        app:layout_constraintTop_toBottomOf="@+id/tvNumPrioDato" />
+</androidx.constraintlayout.widget.ConstraintLayout>

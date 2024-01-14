@@ -102,6 +102,12 @@ public class SettingsActivity extends AppCompatActivity {
                     configuration.fontScale = fontScale;
                     DisplayMetrics metrics = getResources().getDisplayMetrics();
                     getResources().updateConfiguration(configuration, metrics);
+
+                    // Reinicia la actividad para que los cambios surtan efecto en el momento
+                    Intent intent = getActivity().getIntent();
+                    getActivity().finish();
+                    startActivity(intent);
+
                     return true;
                 });
             }

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.TrassTarea"
         tools:targetApi="34">
         <activity
+            android:name=".actividades.EstadisticasActivity"
+            android:exported="false" />
+        <activity
             android:name=".actividades.SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_settings" />

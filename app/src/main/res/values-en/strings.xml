@@ -93,6 +93,9 @@
     <string name="btn_audio">Audio</string>
     <string name="btn_video">Video</string>
 
+    <string name="preferences_restablecer_configuracion">Reset Configuration</string>
+    <string name="estadisticas">Statistics</string>
+
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>

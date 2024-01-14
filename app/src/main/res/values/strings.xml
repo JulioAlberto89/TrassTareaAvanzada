@@ -52,17 +52,17 @@
     <string name="bt_aceptar">Aceptar</string>
     <string name="ad_fechas">Fechas inconsistentes</string>
     <string name="ad_fechas_contenido">La fecha objetivo no puede ser anterior a la fecha de creación</string>
-    
+
     <string name="item_preferences">Preferencias</string>
     <string name="preferences_titulo_visualizacion">Visualización</string>
     <string name="preferences_titulo_ordenacion">Ordenación</string>
     <string name="preferences_tamanyo_letra">Tamaño de letra</string>
-    
+
     <string name="preferences_claro">Claro</string>
     <string name="preferences_oscuro">Oscuro</string>
     <string name="preferences_theme">Tema</string>
     <string name="media">Mediana</string>
-    
+
     <string name="CriterioOrdenacion">Fecha de creación</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="preferences_criterio">Criterio</string>
@@ -70,7 +70,7 @@
     <string name="preferences_ordenacion_asc">Ascendente</string>
     <string name="preferences_ordenacion_desc">Descendente</string>
     <string name="preferences_orden">Orden</string>
-    
+
     <string name="preferences_almacenamiento">Almacenamiento</string>
     <string name="preferences_bbdd_externa">Base de datos externa</string>
     <string name="preferences_almacenamiento_tarjeta_sd">Almacenamiento en tarjeta SD</string>
@@ -87,6 +87,7 @@
 
     <string name="preferences_restablecer">Restablecer</string>
     <string name="preferences_restablecer_configuracion">Restablecer configuración</string>
+    <string name="estadisticas">Estadísticas</string>
 
     <string name="btn_documento">Documentos</string>
     <string name="btn_imagen">Imágenes</string>

@@ -234,6 +234,11 @@ public class ListadoTareasActivity extends AppCompatActivity {
             lanzadorPreferencias.launch(intent);
             return true;
         }
+        else if (id == R.id.item_estadisticas) {
+            Intent intent = new Intent(this, EstadisticasActivity.class);
+            startActivity(intent);
+            return true;
+        }
 
         //OPCIÓN SALIR
         else if (id == R.id.item_exit) {

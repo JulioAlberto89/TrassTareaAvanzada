@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import iestrassierra.jlcamunas.trasstarea.modelo.Tarea;
-
+/*
 @Database(entities = {Tarea.class}, version = 1, exportSchema = false)
 public abstract class TareaDataBase extends RoomDatabase {
     private static TareaDataBase INSTANCIA;
@@ -29,3 +29,4 @@ public abstract class TareaDataBase extends RoomDatabase {
 
     public abstract TareaDAO productoDAO();
 }
+*/

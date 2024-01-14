@@ -9,7 +9,7 @@ import androidx.room.Query;
 import java.util.List;
 
 import iestrassierra.jlcamunas.trasstarea.modelo.Tarea;
-
+/*
 @Dao
 public interface TareaDAO {
     //Anotación que permite realizar una consulta de todos las Tareas de la lista
@@ -37,3 +37,4 @@ public interface TareaDAO {
     //Método que realiza el borrado anterior
     void delete(Tarea tarea);
 }
+*/

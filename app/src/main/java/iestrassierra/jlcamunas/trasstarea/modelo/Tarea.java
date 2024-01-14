@@ -41,6 +41,7 @@ public class Tarea implements Parcelable {
     private Boolean prioritaria;
     @ColumnInfo(name = "descripcion")
     private String descripcion;
+    /*
     @ColumnInfo(name = "url_doc")
     private String URL_doc;
     @ColumnInfo(name = "url_img")
@@ -49,8 +50,11 @@ public class Tarea implements Parcelable {
     private String URL_aud;
     @ColumnInfo(name = "url_vid")
     private String URL_vid;
+     */
 
     // Constructor
+    public Tarea(){
+    }
 
     public Tarea(String titulo, String fechaCreacion, String fechaObjetivo, int progreso, boolean prioritaria, String descripcion) {
         this.id = ++contador_id;
@@ -62,6 +66,7 @@ public class Tarea implements Parcelable {
         this.descripcion = descripcion;
     }
 
+    /*
     public Tarea(String titulo, String fechaCreacion, String fechaObjetivo, int progreso, boolean prioritaria, String descripcion, String URL_doc, String URL_img, String URL_aud, String URL_vid) {
         this.id = ++contador_id;
         this.titulo = titulo;
@@ -75,6 +80,7 @@ public class Tarea implements Parcelable {
         this.URL_aud = URL_aud;
         this.URL_vid = URL_vid;
     }
+     */
 
     // Getters y setters para acceder y modificar los atributos
 
@@ -142,6 +148,7 @@ public class Tarea implements Parcelable {
         this.descripcion = descripcion;
     }
 
+    /*
     public String getURL_doc() {
         return URL_doc;
     }
@@ -173,7 +180,7 @@ public class Tarea implements Parcelable {
     public void setURL_vid(String URL_vid) {
         this.URL_vid = URL_vid;
     }
-
+*/
     //Otros métodos
     private boolean validarFormatoFecha(@NonNull String fecha) {
         String regex = "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/(19|20)\\d\\d$";
