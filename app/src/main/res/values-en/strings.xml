@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TrassTarea</string>
+    <string name="main_tv_slogan">Your tasks, your pace, your success.</string>
+    <string name="main_bt_empezar">Start</string>
+    <string name="main_iv_descripcion">Image with the app logo</string>
+    <string name="listado_tv_vacio">No tasks available</string>
+    <string name="listado_tv_no_prioritarias">No priority tasks available</string>
+    <string name="elemento_tv_titulo">Task Title</string>
+    <string name="elemento_tv_fecha">dd/mm/yyyy</string>
+    <string name="elemento_tv_quedan">Remaining:</string>
+    <string name="elemento_tv_ndias">00</string>
+    <string name="elemento_tv_dias">days</string>
+    <string name="item_acerca_de">About…</string>
+    <string name="item_salir">Exit</string>
+    <string name="item_crear_tarea">Create Task</string>
+    <string name="item_prioritarias">Priorities</string>
+    <string name="item_descripcion">Description</string>
+    <string name="item_editar">Edit</string>
+    <string name="item_borrar">Delete</string>
+    <string name="tv_crear_tarea">Create Task</string>
+    <string name="tv_editar_tarea">Edit Task</string>
+    <string name="tv_titulo">Title</string>
+    <string name="et_titulo">Task Title</string>
+    <string name="tv_fecha_creacion">Creation Date</string>
+    <string name="tv_fecha_objetivo">Target Date</string>
+    <string name="tv_progreso">Progress</string>
+    <string name="cb_prioritaria">Priority</string>
+    <string name="bt_siguiente">Next</string>
+    <string name="tv_descripcion">Description</string>
+    <string name="bt_guardar">Save</string>
+    <string name="bt_volver">Back</string>
+    <string name="hint_et_descripcion">Provide a detailed description of the task</string>
+    <string name="msg_salida">Goodbye</string>
+    <string name="tarea_add">Task added</string>
+    <string name="et_fecha">dd/mm/yyyy</string>
+    <string name="about_title">About…</string>
+    <string name="about_msg">Jose Luis Camuñas\n IES Trassierra\n© 2023</string>
+    <string name="about_ok">Accept</string>
+    <string name="dialog_confirmacion_titulo">Confirm Deletion</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
+    <string name="dialog_msg">Are you sure you want to delete the task:</string>
+    <string name="dialog_erased">Task deleted</string>
+    <string name="dialog_not_found">Task not found</string>
+    <string name="dialog_description">Description</string>
+    <string name="dialog_close">Close</string>
+    <string name="tarea_edit">Task edited</string>
+    <string name="action_canceled">Action canceled</string>
+    <string name="bt_cancelar">Cancel</string>
+    <string name="ad_campos_incompletos">Incomplete fields</string>
+    <string name="ad_campos_contenido">Please fill in the title and dates information</string>
+    <string name="bt_aceptar">Accept</string>
+    <string name="ad_fechas">Inconsistent dates</string>
+    <string name="ad_fechas_contenido">The target date cannot be earlier than the creation date</string>
+
+    <string name="item_preferences">Preferences</string>
+    <string name="preferences_titulo_visualizacion">Display</string>
+    <string name="preferences_titulo_ordenacion">Sorting</string>
+    <string name="preferences_tamanyo_letra">Font Size</string>
+
+    <string name="preferences_claro">Light</string>
+    <string name="preferences_oscuro">Dark</string>
+    <string name="preferences_theme">Theme</string>
+    <string name="media">Medium</string>
+
+    <string name="CriterioOrdenacion">Creation Date</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="preferences_criterio">Criteria</string>
+
+    <string name="preferences_ordenacion_asc">Ascending</string>
+    <string name="preferences_ordenacion_desc">Descending</string>
+    <string name="preferences_orden">Order</string>
+
+    <string name="preferences_almacenamiento">Storage</string>
+    <string name="preferences_bbdd_externa">External Database</string>
+    <string name="preferences_almacenamiento_tarjeta_sd">SD Card Storage</string>
+    <string name="preferences_almacenamiento_limpieza">File Cleanup</string>
+
+    <string name="preferences_almacenamiento_bbdd">Database</string>
+    <string name="preferences_almacenamiento_bbdd_ext">External</string>
+    <string name="preferences_almacenamiento_bbdd_int">Internal</string>
+
+    <string name="preferences_nombre_bbdd">Database Name</string>
+    <string name="preferences_puerto">Port</string>
+    <string name="preferences_usuario">User</string>
+    <string name="preferences_password">Password</string>
+
+    <string name="preferences_restablecer">Reset</string>
+
+    <string name="btn_documento">Documents</string>
+    <string name="btn_imagen">Images</string>
+    <string name="btn_audio">Audio</string>
+    <string name="btn_video">Video</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+</resources>

@@ -1,0 +1,124 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/preferences_titulo_visualizacion">
+
+        <SwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="false"
+            android:title="@string/preferences_theme"
+            app:key="tema"
+            app:summaryOff="@string/preferences_claro"
+            app:summaryOn="@string/preferences_oscuro"
+            app:switchTextOff="@string/preferences_oscuro" />
+        <ListPreference
+            android:defaultValue="@string/media"
+            app:entries="@array/tamanyo_letra"
+            app:entryValues="@array/tamanyo_letra_valores"
+            app:key="tamanyo_letra"
+            app:title="@string/preferences_tamanyo_letra"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/preferences_titulo_ordenacion">
+
+        <ListPreference
+            android:defaultValue="@string/CriterioOrdenacion"
+            app:entries="@array/criterio_ordenacion"
+            app:entryValues="@array/criterio_ordenacion_valores"
+            app:key="ordenacion"
+            app:title="@string/preferences_criterio"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="false"
+            android:title="@string/preferences_orden"
+            app:summaryOff="@string/preferences_ordenacion_asc"
+            app:summaryOn="@string/preferences_ordenacion_desc"
+            app:switchTextOff="@string/preferences_ordenacion_asc" />
+
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/preferences_almacenamiento">
+
+        <CheckBoxPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="false"
+            android:title="@string/preferences_almacenamiento_tarjeta_sd" />
+
+        <EditTextPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="0"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/preferences_almacenamiento_limpieza" />
+        <SwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="false"
+            android:title="@string/preferences_almacenamiento_bbdd"
+            app:summaryOff="@string/preferences_almacenamiento_bbdd_int"
+            app:summaryOn="@string/preferences_almacenamiento_bbdd_ext"
+            app:switchTextOff="@string/preferences_almacenamiento_bbdd_int"/>
+
+        <PreferenceCategory app:title="@string/preferences_bbdd_externa">
+
+            <EditTextPreference
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:defaultValue="bd"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="@string/preferences_nombre_bbdd" />
+
+            <EditTextPreference
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:defaultValue="10.0.2.2"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="IP" />
+
+            <EditTextPreference
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:defaultValue="1001"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="@string/preferences_puerto" />
+
+            <EditTextPreference
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:defaultValue="@string/preferences_usuario"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="@string/preferences_usuario" />
+
+            <EditTextPreference
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:defaultValue=""
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="@string/preferences_password" />
+        </PreferenceCategory>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/preferences_restablecer">
+
+        <Preference
+            android:key="reset_button"
+            android:layout="@layout/boton_restablecer"
+            android:title="@string/preferences_restablecer_configuracion"
+            android:widgetLayout="@layout/boton_restablecer" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
