@@ -121,6 +121,10 @@ public class ListadoTareasActivity extends AppCompatActivity {
     }
 
     private void ordenarTareas() {
+        // Obtiene el valor actual del SwitchPreference
+        boolean ordenAscendente = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("orden", false);
+
         String sortOrder = PreferenceManager.getDefaultSharedPreferences(this)
                 .getString("ordenacion", "@array/criterio_ordenacion_valores");
 
@@ -129,7 +133,9 @@ public class ListadoTareasActivity extends AppCompatActivity {
                 Collections.sort(tareas, new Comparator<Tarea>() {
                     @Override
                     public int compare(Tarea o1, Tarea o2) {
-                        return o1.getTitulo().compareTo(o2.getTitulo());
+                        //return o1.getTitulo().compareTo(o2.getTitulo());
+                        int comparacion = o1.getTitulo().compareTo(o2.getTitulo());
+                        return ordenAscendente ? comparacion : -comparacion;
                     }
                 });
                 break;
@@ -137,7 +143,9 @@ public class ListadoTareasActivity extends AppCompatActivity {
                 Collections.sort(tareas, new Comparator<Tarea>() {
                     @Override
                     public int compare(Tarea o1, Tarea o2) {
-                        return o1.getFechaCreacion().compareTo(o2.getFechaCreacion());
+                        //return o1.getFechaCreacion().compareTo(o2.getFechaCreacion());
+                        int comparacion = o1.getFechaCreacion().compareTo(o2.getFechaCreacion());
+                        return ordenAscendente ? comparacion : -comparacion;
                     }
                 });
                 break;
@@ -146,7 +154,10 @@ public class ListadoTareasActivity extends AppCompatActivity {
                 Collections.sort(tareas, new Comparator<Tarea>() {
                     @Override
                     public int compare(Tarea o1, Tarea o2) {
-                        return Integer.compare(o1.quedanDias(), o2.quedanDias());
+                        //return Integer.compare(o1.quedanDias(), o2.quedanDias());
+                        int comparacion = Integer.compare(o1.quedanDias(), o2.quedanDias());
+                        return ordenAscendente ? comparacion : -comparacion;
+
                     }
                 });
                 break;
@@ -154,7 +165,8 @@ public class ListadoTareasActivity extends AppCompatActivity {
                 Collections.sort(tareas, new Comparator<Tarea>() {
                     @Override
                     public int compare(Tarea o1, Tarea o2) {
-                        return Integer.compare(o1.getProgreso(), o2.getProgreso());
+                        int comparacion = Integer.compare(o1.getProgreso(), o2.getProgreso());
+                        return ordenAscendente ? comparacion : -comparacion;
                     }
                 });
         }
