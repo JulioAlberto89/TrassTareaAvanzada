@@ -1,7 +1,6 @@
 package iestrassierra.jlcamunas.trasstarea.actividades;
 
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -77,8 +76,8 @@ public class EditarTareaActivity extends AppCompatActivity implements
             cambiarFragmento(fragmento1);
             //Escribimos valores en el ViewModel
             tareaViewModel.setTitulo(tareaEditable.getTitulo());
-            tareaViewModel.setFechaCreacion(tareaEditable.getFechaCreacion());
-            tareaViewModel.setFechaObjetivo(tareaEditable.getFechaObjetivo());
+            tareaViewModel.setFechaCreacion(tareaEditable.getFechaCreacionCadena());
+            tareaViewModel.setFechaObjetivo(tareaEditable.getFechaObjetivoCadena());
             tareaViewModel.setProgreso(tareaEditable.getProgreso());
             tareaViewModel.setPrioritaria(tareaEditable.isPrioritaria());
             tareaViewModel.setDescripcion(tareaEditable.getDescripcion());
@@ -138,11 +137,10 @@ public class EditarTareaActivity extends AppCompatActivity implements
         finish();
     }
 
-    /*
     @Override
     public void onBotonAbrirDocumento(){
     }
-    */
+
     @Override
     public void onBotonVolverClicked() {
         //Leemos los valores del formulario del fragmento 2

@@ -1,6 +1,7 @@
 package iestrassierra.jlcamunas.trasstarea.fragmentos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,8 +26,7 @@ public class FragmentoDos extends Fragment {
     public interface ComunicacionSegundoFragmento {
         void onBotonGuardarClicked();
         void onBotonVolverClicked();
-
-        //void onBotonAbrirDocumento();
+        void onBotonAbrirDocumento();
     }
 
     private ComunicacionSegundoFragmento comunicadorSegundoFragmento;
@@ -88,6 +88,15 @@ public class FragmentoDos extends Fragment {
             //Llamamos al método onBotonGuardarClicked que está implementado en la actividad.
             if(comunicadorSegundoFragmento != null)
                 comunicadorSegundoFragmento.onBotonGuardarClicked();
+        });
+        Button btDocumento = view.findViewById(R.id.bt_documentos);
+        btDocumento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("*/*");
+                startActivityForResult(intent, 1);
+            }
         });
     }
 

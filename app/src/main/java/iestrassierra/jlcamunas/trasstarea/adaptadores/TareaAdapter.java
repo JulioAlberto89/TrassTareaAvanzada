@@ -94,7 +94,7 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.TaskViewHold
         private void bind(Tarea t) {
             tvTitulo.setText(t.getTitulo());
             pgProgreso.setProgress(t.getProgreso());
-            tvFechaCreacion.setText(t.getFechaCreacion());
+            tvFechaCreacion.setText(t.getFechaCreacionCadena());
 
             int dias = 0;
             t.quedanDias();
