@@ -138,10 +138,6 @@ public class EditarTareaActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onBotonAbrirDocumento(){
-    }
-
-    @Override
     public void onBotonVolverClicked() {
         //Leemos los valores del formulario del fragmento 2
         descripcion = tareaViewModel.getDescripcion().getValue();

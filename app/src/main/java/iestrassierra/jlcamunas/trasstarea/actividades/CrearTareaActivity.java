@@ -6,14 +6,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.Objects;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 import iestrassierra.jlcamunas.trasstarea.R;
+import iestrassierra.jlcamunas.trasstarea.basedatos.TareaDataBase;
 import iestrassierra.jlcamunas.trasstarea.modelo.Tarea;
 import iestrassierra.jlcamunas.trasstarea.fragmentos.FragmentoUno;
 import iestrassierra.jlcamunas.trasstarea.fragmentos.FragmentoDos;
@@ -34,6 +38,8 @@ public class CrearTareaActivity extends AppCompatActivity implements
 
     private final Fragment fragmento1 = new FragmentoUno();
     private final Fragment fragmento2 = new FragmentoDos();
+    private String url;
+    private TareaDataBase tareaDataBase;
 
     //////////////////////
     private ActivityResultLauncher<String> filePickerLauncher;
@@ -68,6 +74,8 @@ public class CrearTareaActivity extends AppCompatActivity implements
             //Si no hay estado guardado, cargamos el primer fragmento
             cambiarFragmento(fragmento1);
         }
+        //Inicializo la base de datos
+        tareaDataBase = TareaDataBase.getInstance(this.getApplicationContext());
     }
 
     @Override
@@ -105,10 +113,24 @@ public class CrearTareaActivity extends AppCompatActivity implements
     //Implementamos los métodos de la interfaz de comunicación con el segundo fragmento
     @Override
     public void onBotonGuardarClicked() {
+        // Recojo la url del fragmento 2.
+        /*
+        getSupportFragmentManager().setFragmentResultListener("urlDocumento", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                // Recibe la URL del fragmento
+                url = result.getString("uri");
+            }
+        });
+         */
+
+
+
         //Leemos los valores del formulario del fragmento 2
         descripcion = tareaViewModel.getDescripcion().getValue();
         //Creamos la nueva tarea
         Tarea nuevaTarea = new Tarea(titulo, fechaCreacion,fechaObjetivo, progreso, prioritaria, descripcion);
+        //Tarea nuevaTarea = new Tarea(titulo, fechaCreacion,fechaObjetivo, progreso, prioritaria, descripcion, url, "", "", "");
         //Creamos un intent de vuelta para la actividad Listado
         Intent aListado = new Intent();
         //Creamos un Bundle para introducir la nueva tarea
@@ -119,16 +141,13 @@ public class CrearTareaActivity extends AppCompatActivity implements
         //Indicamos que el resultado ha sido OK
         setResult(RESULT_OK, aListado);
 
+        //Inserto la tarea en la base de datos
+        Executor executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> tareaDataBase.productoDAO().insertAll(nuevaTarea));
+
         //Volvemos a la actividad Listado
         finish();
     }
-
-
-    @Override
-    public void onBotonAbrirDocumento(){
-
-    }
-
 
     @Override
     public void onBotonVolverClicked() {

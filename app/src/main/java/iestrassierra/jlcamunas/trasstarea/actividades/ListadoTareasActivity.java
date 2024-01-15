@@ -120,6 +120,8 @@ public class ListadoTareasActivity extends AppCompatActivity {
         }
     }
 
+    //Método que ordena las tareas según distintos criterios.
+    //Compruebo primero si está activada la opción ascendente o descendente.
     private void ordenarTareas() {
         // Obtiene el valor actual del SwitchPreference
         boolean ordenAscendente = PreferenceManager.getDefaultSharedPreferences(this)
@@ -368,6 +370,7 @@ public class ListadoTareasActivity extends AppCompatActivity {
         }
     });
 
+    //Aquí llamo al método de ordenar las tareas previamente realizado.
     private final ActivityResultLauncher<Intent> lanzadorPreferencias = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult o) {

@@ -2,31 +2,38 @@ package iestrassierra.jlcamunas.trasstarea.fragmentos;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import iestrassierra.jlcamunas.trasstarea.R;
+import iestrassierra.jlcamunas.trasstarea.actividades.ListadoTareasActivity;
 import iestrassierra.jlcamunas.trasstarea.adaptadores.TareaViewModel;
 
 public class FragmentoDos extends Fragment {
 
     private TareaViewModel tareaViewModel;
     private EditText etDescripcion;
+    Uri selectedUri;
 
     //Interfaces de comunicación con la actividad para el botón Guardar y Volver
     public interface ComunicacionSegundoFragmento {
         void onBotonGuardarClicked();
         void onBotonVolverClicked();
-        void onBotonAbrirDocumento();
     }
 
     private ComunicacionSegundoFragmento comunicadorSegundoFragmento;
@@ -89,13 +96,32 @@ public class FragmentoDos extends Fragment {
             if(comunicadorSegundoFragmento != null)
                 comunicadorSegundoFragmento.onBotonGuardarClicked();
         });
+
+        //Botón que abre el documento y guarda su url.
         Button btDocumento = view.findViewById(R.id.bt_documentos);
+        ActivityResultLauncher<String> mGetContent = registerForActivityResult(
+                new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+                    @Override
+                    public void onActivityResult(Uri uri) {
+                        // Guarda la Uri en la variable
+                        selectedUri = uri;
+
+                        // Puedes guardar la URL en SharedPreferences u otros métodos de almacenamiento persistente
+                        // En este ejemplo, uso SharedPreferences
+                        Intent intent = new Intent();
+                        intent.putExtra("uri", selectedUri.toString());
+
+                        // Notifica a la actividad que tiene datos para procesar
+                        getParentFragmentManager().setFragmentResult("urlDocumento", new Bundle());
+
+                        Toast.makeText(getActivity(), "URL del documento: " + uri.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
         btDocumento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("*/*");
-                startActivityForResult(intent, 1);
+                mGetContent.launch("*/*");
             }
         });
     }
