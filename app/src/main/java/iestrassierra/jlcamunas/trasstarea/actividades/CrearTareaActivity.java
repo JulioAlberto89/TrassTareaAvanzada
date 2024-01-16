@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import java.util.Objects;
 import java.util.concurrent.Executor;
@@ -96,6 +97,7 @@ public class CrearTareaActivity extends AppCompatActivity implements
         fechaObjetivo = tareaViewModel.getFechaObjetivo().getValue();
         progreso = tareaViewModel.getProgreso().getValue();
         prioritaria = tareaViewModel.isPrioritaria().getValue();
+        //url = tareaViewModel.getUrlDocumento().getValue();
 
         //Cambiamos el fragmento
         cambiarFragmento(fragmento2);
@@ -113,8 +115,7 @@ public class CrearTareaActivity extends AppCompatActivity implements
     //Implementamos los métodos de la interfaz de comunicación con el segundo fragmento
     @Override
     public void onBotonGuardarClicked() {
-        // Recojo la url del fragmento 2.
-        /*
+        // Recojo la url del fragmento 2
         getSupportFragmentManager().setFragmentResultListener("urlDocumento", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
@@ -122,15 +123,13 @@ public class CrearTareaActivity extends AppCompatActivity implements
                 url = result.getString("uri");
             }
         });
-         */
-
-
+        ///////////////////////////////////////////////////
 
         //Leemos los valores del formulario del fragmento 2
         descripcion = tareaViewModel.getDescripcion().getValue();
         //Creamos la nueva tarea
-        Tarea nuevaTarea = new Tarea(titulo, fechaCreacion,fechaObjetivo, progreso, prioritaria, descripcion);
-        //Tarea nuevaTarea = new Tarea(titulo, fechaCreacion,fechaObjetivo, progreso, prioritaria, descripcion, url, "", "", "");
+        //Tarea nuevaTarea = new Tarea(titulo, fechaCreacion,fechaObjetivo, progreso, prioritaria, descripcion);
+        Tarea nuevaTarea = new Tarea(titulo, fechaCreacion,fechaObjetivo, progreso, prioritaria, descripcion, url, "", "", "");
         //Creamos un intent de vuelta para la actividad Listado
         Intent aListado = new Intent();
         //Creamos un Bundle para introducir la nueva tarea

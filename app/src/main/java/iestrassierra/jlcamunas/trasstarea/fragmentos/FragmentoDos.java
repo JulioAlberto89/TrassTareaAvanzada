@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -106,15 +107,12 @@ public class FragmentoDos extends Fragment {
                         // Guarda la Uri en la variable
                         selectedUri = uri;
 
-                        // Puedes guardar la URL en SharedPreferences u otros métodos de almacenamiento persistente
-                        // En este ejemplo, uso SharedPreferences
-                        Intent intent = new Intent();
-                        intent.putExtra("uri", selectedUri.toString());
+                        Bundle bundle = new Bundle();
+                        bundle.putString("uri", selectedUri.toString());
 
                         // Notifica a la actividad que tiene datos para procesar
-                        getParentFragmentManager().setFragmentResult("urlDocumento", new Bundle());
-
-                        Toast.makeText(getActivity(), "URL del documento: " + uri.toString(), Toast.LENGTH_SHORT).show();
+                        getParentFragmentManager().setFragmentResult("urlDocumento", bundle);
+                        Toast.makeText(getActivity(), "URL del documento: " + uri, Toast.LENGTH_SHORT).show();
                     }
                 });
 
