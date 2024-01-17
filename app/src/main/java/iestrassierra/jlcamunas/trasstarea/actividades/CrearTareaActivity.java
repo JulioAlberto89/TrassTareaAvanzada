@@ -1,7 +1,5 @@
 package iestrassierra.jlcamunas.trasstarea.actividades;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -11,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import java.util.Objects;
 import java.util.concurrent.Executor;
@@ -41,12 +38,6 @@ public class CrearTareaActivity extends AppCompatActivity implements
     private final Fragment fragmento2 = new FragmentoDos();
     private String url;
     private TareaDataBase tareaDataBase;
-
-    //////////////////////
-    private ActivityResultLauncher<String> filePickerLauncher;
-
-    private static final int PICK_FILE_REQUEST_CODE = 1001; // Código de solicitud para obtener el archivo
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,7 +133,11 @@ public class CrearTareaActivity extends AppCompatActivity implements
 
         //Inserto la tarea en la base de datos
         Executor executor = Executors.newSingleThreadExecutor();
-        executor.execute(() -> tareaDataBase.productoDAO().insertAll(nuevaTarea));
+        executor.execute(() -> tareaDataBase.tareaDAO().insertAll(nuevaTarea));
+
+        // Commit de la transacción
+        //tareaDataBase.getOpenHelper().getWritableDatabase().setTransactionSuccessful();
+        //tareaDataBase.getOpenHelper().getWritableDatabase().endTransaction();
 
         //Volvemos a la actividad Listado
         finish();

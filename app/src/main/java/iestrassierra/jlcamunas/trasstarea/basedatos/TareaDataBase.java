@@ -27,5 +27,5 @@ public abstract class TareaDataBase extends RoomDatabase {
         INSTANCIA = null;
     }
 
-    public abstract TareaDAO productoDAO();
+    public abstract TareaDAO tareaDAO();
 }

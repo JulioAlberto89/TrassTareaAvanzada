@@ -27,6 +27,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.lifecycle.LiveData;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,9 +37,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 import iestrassierra.jlcamunas.trasstarea.R;
 import iestrassierra.jlcamunas.trasstarea.adaptadores.TareaAdapter;
+import iestrassierra.jlcamunas.trasstarea.basedatos.TareaDataBase;
 import iestrassierra.jlcamunas.trasstarea.modelo.Tarea;
 
 public class ListadoTareasActivity extends AppCompatActivity {
@@ -262,7 +266,6 @@ public class ListadoTareasActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     //////////////////////////////// OPCIONES DEL MENÚ CONTEXTUAL  /////////////////////////////////
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item){
@@ -433,7 +436,6 @@ public class ListadoTareasActivity extends AppCompatActivity {
     //Registramos el lanzador hacia la actividad EditarTareaActivity con el contrato y respuesta personalizados
     ActivityResultLauncher<Tarea> lanzadorActividadEditar = registerForActivityResult(contratoEditar, resultadoEditar);
 
-
     //////////////////////////////////////// OTROS MÉTODOS /////////////////////////////////////////
 
     //Método para cambiar el icono de acción para mostrar todas las tareas o solo prioritarias
@@ -481,6 +483,24 @@ public class ListadoTareasActivity extends AppCompatActivity {
 
     // Método de inicialización de la colección. Tareas de ejemplo.
     private void inicializarListaTareas(){
+
+        //Cambio la funcionalidad de éste método para mostrar las tareas creadas.
+        // Inicializa la base de datos
+        TareaDataBase tareaDataBase = TareaDataBase.getInstance(getApplicationContext());
+
+        // Recupera las tareas de la base de datos
+        tareaDataBase.tareaDAO().getAll().observe(this, tareasDB -> {
+            if (tareasDB != null) {
+                // Actualiza la lista de tareas en el hilo principal
+                tareas.clear();
+                tareas.addAll(tareasDB);
+                adaptador.notifyDataSetChanged();
+
+                // Comprueba si el listado ha quedado vacío
+                comprobarListadoVacio();
+            }
+        });
+
         tareas.add(new Tarea("Hacer el cuestionario inicial", "10/09/2023", "17/09/2023", 100, true, ""));
         tareas.add(new Tarea("Hacer la tarea UT01", "18/09/2023", "03/10/2023", 100, true, ""));
         tareas.add(new Tarea("Hacer cuestionarios UT01", "18/09/2023", "01/10/2023", 100, false, ""));
@@ -511,6 +531,19 @@ public class ListadoTareasActivity extends AppCompatActivity {
                     "Vestibulum tincidunt maximus turpis, eget fermentum lectus iaculis non. Proin vulputate metus sed metus laoreet ultricies. Maecenas pulvinar lectus quis pretium rhoncus. Suspendisse eget dolor vel nisi aliquet condimentum id a erat. Donec rutrum sem."
             )
         );
+        //Guardar las tareas de prueba
+        // Inicializa la base de datos
+        /*
+        TareaDataBase tareaDataBase = TareaDataBase.getInstance(getApplicationContext());
+
+        // Inserta las tareas en la base de datos
+        Executor executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> {
+            for (Tarea tarea : tareas) {
+                tareaDataBase.productoDAO().insertAll(tarea);
+            }
+        });
+         */
     }
 
 }
