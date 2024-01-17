@@ -21,6 +21,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import iestrassierra.jlcamunas.trasstarea.R;
 import iestrassierra.jlcamunas.trasstarea.actividades.ListadoTareasActivity;
 import iestrassierra.jlcamunas.trasstarea.adaptadores.TareaViewModel;
@@ -113,6 +119,42 @@ public class FragmentoDos extends Fragment {
                         // Notifica a la actividad que tiene datos para procesar
                         getParentFragmentManager().setFragmentResult("urlDocumento", bundle);
                         Toast.makeText(getActivity(), "URL del documento: " + uri, Toast.LENGTH_SHORT).show();
+
+                        /////////////////////////////////////////////////////////////////////////
+                        //Esta parte es para guardar el documento seleccionado en un directorio
+                        // Obtener la ruta del directorio de archivos privados de la aplicación
+                        File directory = requireContext().getFilesDir();
+
+                        // Crear un archivo en el directorio de la aplicación
+                        File destinationFile = new File(directory, "documento_" + System.currentTimeMillis());
+
+                        try {
+                            // Copiar el contenido del archivo seleccionado al nuevo archivo de destino
+                            InputStream inputStream = requireActivity().getContentResolver().openInputStream(uri);
+                            OutputStream outputStream = new FileOutputStream(destinationFile);
+
+                            byte[] buffer = new byte[1024];
+                            int length;
+
+                            while ((length = inputStream.read(buffer)) > 0) {
+                                outputStream.write(buffer, 0, length);
+                            }
+
+                            // Cerrar streams
+                            inputStream.close();
+                            outputStream.close();
+
+                            // Notificar a la actividad que tiene datos para procesar (ruta del archivo guardado)
+                            Bundle bundleDocumento = new Bundle();
+                            bundle.putString("uriDocumento", destinationFile.getAbsolutePath());
+                            getParentFragmentManager().setFragmentResult("uriDocumento", bundleDocumento);
+
+                            Toast.makeText(requireContext(), "Archivo guardado en: " + destinationFile.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            Toast.makeText(requireContext(), "Error al guardar el archivo", Toast.LENGTH_SHORT).show();
+                        }
+                        /////////////////////////////////////////////////////////////////////////
                     }
                 });
 

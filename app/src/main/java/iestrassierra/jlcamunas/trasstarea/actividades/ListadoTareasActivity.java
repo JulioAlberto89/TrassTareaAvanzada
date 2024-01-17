@@ -58,6 +58,7 @@ public class ListadoTareasActivity extends AppCompatActivity {
     // Variable para almacenar el tamaño de la fuente anterior
     private String previoFontSize;
     private boolean temaPrevio;
+    private TareaDataBase tareaDataBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +103,9 @@ public class ListadoTareasActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         //previousFontSize = sharedPreferences.getString("signature", "@string/media");
         temaPrevio = sharedPreferences.getBoolean("tema", false);
+
+        //Inicializo la base de datos
+        tareaDataBase = TareaDataBase.getInstance(this.getApplicationContext());
     }
 
     //Activamos las opciones de preferencias
@@ -314,6 +318,10 @@ public class ListadoTareasActivity extends AppCompatActivity {
                         position = tareas.indexOf(tareaSeleccionada);
                         tareas.remove(tareaSeleccionada);
                         adaptador.notifyItemRemoved(position);
+
+                        //Borro la tarea de la base de datos.
+                        Executor executor = Executors.newSingleThreadExecutor();
+                        executor.execute(() -> tareaDataBase.tareaDAO().delete(tareaSeleccionada));
 
                         //Comprobamos si el listado ha quedado vacío
                         comprobarListadoVacio();

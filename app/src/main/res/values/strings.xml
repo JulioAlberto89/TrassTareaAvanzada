@@ -26,7 +26,7 @@
     <string name="tv_progreso">Progreso</string>
     <string name="cb_prioritaria">Prioritaria</string>
     <string name="bt_siguiente">Siguiente</string>
-    <string name="tv_descripcion">Descripción</string>
+    <string name="tv_descripcion">Detalle</string>
     <string name="bt_guardar">Guardar</string>
     <string name="bt_volver">Volver</string>
     <string name="hint_et_descripcion">Describe con detalle la tarea</string>
@@ -34,7 +34,7 @@
     <string name="tarea_add">Tarea añadida</string>
     <string name="et_fecha">dd/mm/aaaa</string>
     <string name="about_title">Acerca de…</string>
-    <string name="about_msg">José Luis Camuñas\n IES Trassierra\n\u00A9 2023</string>
+    <string name="about_msg">Julio Alberto Mayoral Villegas\n IES Trassierra\n\u00A9 2024</string>
     <string name="about_ok">Aceptar</string>
     <string name="dialog_confirmacion_titulo">Confirmar borrado</string>
     <string name="dialog_yes">Sí</string>

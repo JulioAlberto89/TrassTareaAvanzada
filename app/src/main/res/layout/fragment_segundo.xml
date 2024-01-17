@@ -38,6 +38,18 @@
     </ScrollView>
 
     <Button
+        android:id="@+id/bt_guardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_guardar"
+        app:layout_constraintBottom_toBottomOf="@+id/bt_volver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bt_volver"
+        app:layout_constraintTop_toTopOf="@+id/bt_volver"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
         android:id="@+id/bt_volver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,32 +62,27 @@
         app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
     <Button
-        android:id="@+id/bt_guardar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bt_guardar"
-        app:layout_constraintBottom_toBottomOf="@+id/bt_volver"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bt_volver"
-        app:layout_constraintTop_toTopOf="@+id/bt_volver" />
-
-    <Button
         android:id="@+id/bt_documentos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="45dp"
         android:layout_marginBottom="144dp"
-        android:text="@string/btn_documento"
+        android:contentDescription="@string/btn_documento"
+        android:drawableStart="@drawable/baseline_document"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bt_imagen"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
     <Button
         android:id="@+id/bt_imagen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_imagen"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/baseline_image_search_24"
+        android:contentDescription="@string/btn_imagen"
+        android:textAllCaps="true"
         app:layout_constraintEnd_toStartOf="@+id/bt_audio"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bt_documentos"
@@ -83,9 +90,10 @@
 
     <Button
         android:id="@+id/bt_audio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_audio"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/baseline_audio_file_24"
+        android:contentDescription="@string/btn_audio"
         app:layout_constraintEnd_toStartOf="@+id/bt_video"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bt_imagen"
@@ -93,9 +101,10 @@
 
     <Button
         android:id="@+id/bt_video"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_video"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/baseline_slow_motion_video"
+        android:contentDescription="@string/btn_video"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bt_audio"

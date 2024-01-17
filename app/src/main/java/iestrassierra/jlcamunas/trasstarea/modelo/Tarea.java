@@ -55,7 +55,7 @@ public class Tarea implements Parcelable {
     }
 
     public Tarea(String titulo, String fechaCreacion, String fechaObjetivo, int progreso, boolean prioritaria, String descripcion) {
-        this.id = ++contador_id;
+        //this.id = ++contador_id;
         this.titulo = titulo;
         this.fechaCreacion = validarFecha(fechaCreacion);
         this.fechaObjetivo = validarFecha(fechaObjetivo);
@@ -65,7 +65,7 @@ public class Tarea implements Parcelable {
     }
 
     public Tarea(String titulo, String fechaCreacion, String fechaObjetivo, int progreso, boolean prioritaria, String descripcion, String URL_doc, String URL_img, String URL_aud, String URL_vid) {
-        this.id = ++contador_id;
+        //this.id = ++contador_id;
         this.titulo = titulo;
         this.fechaCreacion = validarFecha(fechaCreacion);
         this.fechaObjetivo = validarFecha(fechaObjetivo);
