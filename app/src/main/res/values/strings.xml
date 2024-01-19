@@ -14,7 +14,7 @@
     <string name="item_salir">Salir</string>
     <string name="item_crear_tarea">Crear Tarea</string>
     <string name="item_prioritarias">Prioritarias</string>
-    <string name="item_descripcion">Descripción</string>
+    <string name="item_descripcion">Detalles</string>
     <string name="item_editar">Editar</string>
     <string name="item_borrar">Borrar</string>
     <string name="tv_crear_tarea">Crear tarea</string>

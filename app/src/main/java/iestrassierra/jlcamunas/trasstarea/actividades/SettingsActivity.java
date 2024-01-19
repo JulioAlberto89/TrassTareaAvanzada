@@ -14,6 +14,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.preference.EditTextPreference;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
@@ -130,6 +131,7 @@ public class SettingsActivity extends AppCompatActivity {
             }
             //////////////////////////////////////////////////////////////////////////
         }
+
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, @Nullable String key) {
         }

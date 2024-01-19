@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +19,10 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceManager;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -30,12 +33,14 @@ import java.io.OutputStream;
 import iestrassierra.jlcamunas.trasstarea.R;
 import iestrassierra.jlcamunas.trasstarea.actividades.ListadoTareasActivity;
 import iestrassierra.jlcamunas.trasstarea.adaptadores.TareaViewModel;
+import iestrassierra.jlcamunas.trasstarea.ficheros.EscribirFicheros;
 
 public class FragmentoDos extends Fragment {
 
     private TareaViewModel tareaViewModel;
     private EditText etDescripcion;
     Uri selectedUri;
+    EscribirFicheros escribir;
 
     //Interfaces de comunicación con la actividad para el botón Guardar y Volver
     public interface ComunicacionSegundoFragmento {
@@ -112,6 +117,7 @@ public class FragmentoDos extends Fragment {
                     public void onActivityResult(Uri uri) {
                         // Guarda la Uri en la variable
                         selectedUri = uri;
+                        escribir = new EscribirFicheros(getActivity());
 
                         Bundle bundle = new Bundle();
                         bundle.putString("uri", selectedUri.toString());
@@ -121,9 +127,30 @@ public class FragmentoDos extends Fragment {
                         Toast.makeText(getActivity(), "URL del documento: " + uri, Toast.LENGTH_SHORT).show();
 
                         /////////////////////////////////////////////////////////////////////////
+                        // Lee el valor de la preferencia
+                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
+                        boolean guardarEnTarjetaSD = preferences.getBoolean("tarjeta_sd", false);
+
+                        // Establece el nombre de la carpeta
+                        String nombreCarpetaExterna = "Carpeta_TrassTarea_SD";
+                        String nombreCarpetaInterna = "Carpeta_TrassTarea_Interna";
+                        String nombreDocumento = "textoTrassTarea.txt";
+                        // Obtén el directorio adecuado según la preferencia
+                        File directory;
+
+                        String contenido = escribir.leerExternoUri(selectedUri);
+
+                        // Decide dónde guardar el archivo
+                        if (guardarEnTarjetaSD) {
+                            escribir.escribirExterno(nombreCarpetaExterna, nombreDocumento, contenido);
+                        } else {
+                            escribir.escribirSD(nombreCarpetaInterna, nombreDocumento, contenido);
+                        }
+                        //////////////////////////////Almacenamiento interno//////////////////////////////////
                         //Esta parte es para guardar el documento seleccionado en un directorio
                         // Obtener la ruta del directorio de archivos privados de la aplicación
-                        File directory = requireContext().getFilesDir();
+
+                        directory = requireContext().getFilesDir();
 
                         // Crear un archivo en el directorio de la aplicación
                         File destinationFile = new File(directory, "documento_" + System.currentTimeMillis());
