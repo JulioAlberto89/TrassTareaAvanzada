@@ -35,4 +35,37 @@ public interface TareaDAO {
     @Delete
     //Método que realiza el borrado anterior
     void delete(Tarea tarea);
+
+    //Consultas personalizadas
+    // Nueva consulta para obtener el número de tareas con la mitad o más del progreso completado
+    @Query("SELECT COUNT(*) FROM Tarea WHERE progreso >= 50")
+    LiveData<Integer> getCountTareasConMitadOmasProgreso();
+
+    // Puedes también tener una versión que no devuelva LiveData si no es necesario para tu caso
+    @Query("SELECT COUNT(*) FROM Tarea WHERE progreso >= 50")
+    int getCountTareasConMitadOmasProgresoSinLiveData();
+
+    // Obtener el número total de tareas
+    @Query("SELECT COUNT(*) FROM Tarea")
+    LiveData<Integer> getCountTotalTareas();
+
+    // Obtener el número de tareas prioritarias
+    @Query("SELECT COUNT(*) FROM Tarea WHERE prioritaria = 1")
+    LiveData<Integer> getCountTareasPrioritarias();
+
+    // Obtener el número de tareas terminadas
+    @Query("SELECT COUNT(*) FROM Tarea WHERE progreso = 100")
+    LiveData<Integer> getCountTareasTerminadas();
+
+    // También puedes tener una versión que no devuelva LiveData si no es necesario para tu caso
+    @Query("SELECT COUNT(*) FROM Tarea WHERE progreso = 100")
+    int getCountTareasTerminadasSinLiveData();
+
+    //Número de tareas con documentos adjuntos
+    @Query("SELECT COUNT(*) FROM Tarea WHERE URL_doc IS NOT NULL AND URL_doc != ''")
+    LiveData<Integer> getCountTareasConDocumentos();
+
+    //Porcentaje de terminadas
+    @Query("SELECT (COUNT(*) * 100 / (SELECT COUNT(*) FROM Tarea)) FROM Tarea WHERE progreso = 100")
+    LiveData<Integer> getCountTareasPorcentajeTerminadas();
 }

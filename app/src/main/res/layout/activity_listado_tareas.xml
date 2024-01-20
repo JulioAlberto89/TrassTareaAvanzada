@@ -26,4 +26,5 @@
         android:backgroundTint="@color/cardview_dark_background">
 
     </androidx.recyclerview.widget.RecyclerView>
+
 </RelativeLayout>
