@@ -1,7 +1,9 @@
 package iestrassierra.jlcamunas.trasstarea.actividades;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -57,9 +59,15 @@ public class EstadisticasActivity extends AppCompatActivity {
         });
 
 
-        countTareasPorcentajeLiveData.observe(this, countTareasPorcentaje -> {
-            // Actualiza el TextView con el porcentaje de tareas terminadas (como un entero)
-            porcentaje.setText(String.valueOf(countTareasPorcentaje));
+        countTareasPorcentajeLiveData.observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(@Nullable Integer countTareasPorcentaje) {
+                // Manejar el caso cuando countTareasPorcentaje es null
+                int porcentajeValue = (countTareasPorcentaje != null) ? countTareasPorcentaje : 0;
+
+                // Actualiza el TextView con el porcentaje de tareas terminadas (como un entero)
+                porcentaje.setText(String.valueOf(porcentajeValue));
+            }
         });
 
         countTareasMitadLiveData.observe(this, countTareasMitad -> {

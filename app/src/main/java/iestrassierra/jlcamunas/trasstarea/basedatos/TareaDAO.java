@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -68,4 +69,12 @@ public interface TareaDAO {
     //Porcentaje de terminadas
     @Query("SELECT (COUNT(*) * 100 / (SELECT COUNT(*) FROM Tarea)) FROM Tarea WHERE progreso = 100")
     LiveData<Integer> getCountTareasPorcentajeTerminadas();
+
+    //Para que devuelva List<Tarea> directamente
+    @Query("SELECT * FROM Tarea")
+    List<Tarea> getAllTareasDirectly();
+
+    //Actualizar la Tarea
+    @Update
+    void update (Tarea tarea);
 }

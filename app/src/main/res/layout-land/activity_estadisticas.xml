@@ -3,20 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".actividades.EstadisticasActivity">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/tvNumAct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="130dp"
         android:text="Número de tareas:"
-        android:textColor="@color/gris_oscuro2"
+        android:textColor="@color/gris_oscuro"
         app:layout_constraintBottom_toTopOf="@+id/tvNumPrio"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/tvNumPrio"
@@ -26,7 +25,8 @@
         android:textColor="@color/gris_oscuro"
         app:layout_constraintBottom_toTopOf="@+id/tvNumTerminadas"
         app:layout_constraintEnd_toEndOf="@+id/tvNumAct"
-        app:layout_constraintTop_toBottomOf="@+id/tvNumAct" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNumAct"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/tvNumTerminadas"
@@ -36,7 +36,8 @@
         android:textColor="@color/gris_oscuro"
         app:layout_constraintBottom_toTopOf="@+id/tvNumMitad"
         app:layout_constraintEnd_toEndOf="@+id/tvNumPrio"
-        app:layout_constraintTop_toBottomOf="@+id/tvNumPrio" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNumPrio"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/tvNumMitad"
@@ -47,7 +48,8 @@
         android:textColor="@color/gris_oscuro"
         app:layout_constraintBottom_toTopOf="@+id/tvPorcentajeTerm"
         app:layout_constraintEnd_toEndOf="@+id/tvNumTerminadas"
-        app:layout_constraintTop_toBottomOf="@+id/tvNumTerminadas" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNumTerminadas"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/tvPorcentajeTerm"
@@ -58,7 +60,8 @@
         android:textColor="@color/gris_oscuro"
         app:layout_constraintBottom_toTopOf="@+id/tvDocumentos"
         app:layout_constraintEnd_toEndOf="@+id/tvNumMitad"
-        app:layout_constraintTop_toBottomOf="@+id/tvNumMitad" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNumMitad"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/tvDocumentos"
@@ -69,13 +72,14 @@
         android:textColor="@color/gris_oscuro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/tvPorcentajeTerm"
-        app:layout_constraintTop_toBottomOf="@+id/tvPorcentajeTerm" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPorcentajeTerm"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/tvNumActDato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="250dp"
         android:text="TextView"
         android:textColor="@color/gris_oscuro"
         app:layout_constraintBottom_toBottomOf="@+id/tvNumAct"
@@ -89,7 +93,6 @@
         android:text="TextView"
         android:textColor="@color/gris_oscuro"
         app:layout_constraintBottom_toBottomOf="@+id/tvNumPrio"
-        app:layout_constraintEnd_toEndOf="@+id/tvNumActDato"
         app:layout_constraintStart_toStartOf="@+id/tvNumActDato"
         app:layout_constraintTop_toTopOf="@+id/tvNumPrio" />
 
@@ -100,7 +103,6 @@
         android:text="TextView"
         android:textColor="@color/gris_oscuro"
         app:layout_constraintBottom_toBottomOf="@+id/tvNumTerminadas"
-        app:layout_constraintEnd_toEndOf="@+id/tvNumPrioDato"
         app:layout_constraintStart_toStartOf="@+id/tvNumPrioDato"
         app:layout_constraintTop_toTopOf="@+id/tvNumTerminadas" />
 
@@ -133,4 +135,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvDocumentos"
         app:layout_constraintStart_toStartOf="@+id/tvPorcentajeTermDato"
         app:layout_constraintTop_toTopOf="@+id/tvDocumentos" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -427,6 +427,16 @@ public class ListadoTareasActivity extends AppCompatActivity {
                 //Seteamos el id de la tarea recibida para que coincida con el de la tarea editada
                 tareaEditada.setId(tareaSeleccionada.getId());
 
+                // Actualizamos la tarea en la base de datos en un hilo separado
+                Executor executor = Executors.newSingleThreadExecutor();
+                executor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        TareaDataBase db = TareaDataBase.getInstance(getApplicationContext());
+                        db.tareaDAO().update(tareaEditada);
+                    }
+                });
+
                 //Procedemos a la sustitución de la tarea editada por la seleccionada.
                 int posicionEnColeccion = tareas.indexOf(tareaSeleccionada);
                 tareas.remove(tareaSeleccionada);

@@ -9,4 +9,5 @@
     <color name="rojo">#FFf01010</color>
     <color name="secundario">#DCE3E9</color>
     <color name="gris_oscuro">#363636</color>
+    <color name="gris_oscuro2">#444444</color>
 </resources>

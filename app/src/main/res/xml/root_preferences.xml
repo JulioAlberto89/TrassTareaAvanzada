@@ -58,7 +58,7 @@
             android:defaultValue="0"
             android:selectAllOnFocus="true"
             android:singleLine="true"
-            android:summary="%s días"
+            android:summary="0 días"
             android:key="limpieza_archivos"
             android:title="@string/preferences_almacenamiento_limpieza" />
         <SwitchPreference
@@ -78,6 +78,7 @@
             <EditTextPreference
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:key="nombrebd"
                 android:defaultValue="bd"
                 android:selectAllOnFocus="true"
                 android:singleLine="true"
@@ -86,6 +87,7 @@
             <EditTextPreference
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:key="ip"
                 android:defaultValue="10.0.2.2"
                 android:selectAllOnFocus="true"
                 android:singleLine="true"
@@ -94,6 +96,7 @@
             <EditTextPreference
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:key="puerto"
                 android:defaultValue="1001"
                 android:selectAllOnFocus="true"
                 android:singleLine="true"
@@ -102,6 +105,7 @@
             <EditTextPreference
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:key="nombre_usuario"
                 android:defaultValue="@string/preferences_usuario"
                 android:selectAllOnFocus="true"
                 android:singleLine="true"
@@ -110,6 +114,7 @@
             <EditTextPreference
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:key="password"
                 android:defaultValue=""
                 android:selectAllOnFocus="true"
                 android:singleLine="true"
