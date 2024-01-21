@@ -235,7 +235,7 @@ public class ListadoTareasActivity extends AppCompatActivity {
         else if (id == R.id.item_about) {
 
             ImageView imageView = new ImageView(this);
-            imageView.setImageResource(R.drawable.trasstarea);
+            imageView.setImageResource(R.drawable.check_circle_svgrepo_com);
             imageView.requestLayout();
 
             //Creamos un AlertDialog como cuadro de diálogo
@@ -471,10 +471,10 @@ public class ListadoTareasActivity extends AppCompatActivity {
     private void iconoPrioritarias(){
         if(boolPrior)
             //Ponemos en la barra de herramientas el icono PRIORITARIAS
-            menuItemPrior.setIcon(R.drawable.baseline_star_outline_24);
+            menuItemPrior.setIcon(R.drawable.baseline_stars_24_gold);
         else
             //Ponemos en la barra de herramientas el icono NO PRIORITARIAS
-            menuItemPrior.setIcon(R.drawable.baseline_star_outline_24_crossed);
+            menuItemPrior.setIcon(R.drawable.baseline_stars_24_dark);
     }
 
     //Método que comprueba si el listado de tareas está vacío.

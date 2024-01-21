@@ -5,7 +5,7 @@
         <!-- Primary brand color.-->
         <item name="colorPrimary">@color/primario</item>
         <item name="colorPrimaryVariant">@color/primario_oscuro</item>
-        <item name="colorOnPrimary">@color/claro</item>
+        <item name="colorOnPrimary">@color/gris_oscuro</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/resaltado</item>
         <item name="colorSecondaryVariant">@color/resaltado_oscuro</item>
@@ -14,5 +14,8 @@
 
         <item name="android:background">@color/claro</item>
         <!-- Customize your theme here. -->
+        <!-- Text color for menus. -->
+        <item name="android:textColor">@color/oscuro</item>
+        <item name="android:actionMenuTextColor">@color/oscuro</item>
     </style>
 </resources>
