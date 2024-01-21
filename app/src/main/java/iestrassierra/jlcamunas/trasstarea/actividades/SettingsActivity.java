@@ -1,12 +1,17 @@
 package iestrassierra.jlcamunas.trasstarea.actividades;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +24,7 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
+import androidx.preference.PreferenceViewHolder;
 import androidx.preference.SwitchPreference;
 import androidx.preference.SwitchPreferenceCompat;
 
@@ -48,6 +54,40 @@ public class SettingsActivity extends AppCompatActivity {
                 .commit();
     }
 
+    public class ButtonPreference extends Preference {
+        public ButtonPreference(Context context, AttributeSet attrs) {
+            super(context, attrs);
+            setLayoutResource(R.layout.boton_restablecer);
+        }
+    ///////////////////////////////////////Reset////////////////////////////////////////////
+        @Override
+        public void onBindViewHolder(PreferenceViewHolder holder) {
+            super.onBindViewHolder(holder);
+            Button button = (Button) holder.findViewById(R.id.btnRestablecer);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onClickReset(v);
+                }
+            });
+        }
+
+        public void onClickReset(View view) {
+            // Obtén el contexto de la aplicación
+            Context context = getContext().getApplicationContext();
+
+            // Restablecer preferencias específicas a sus valores por defecto
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.remove("clave_pref_1");
+            editor.remove("clave_pref_2");
+            editor.apply();
+
+            // Muestra un mensaje al usuario
+            Toast.makeText(context, "Las preferencias han sido restablecidas a los valores por defecto", Toast.LENGTH_SHORT).show();
+        }
+    }
+    ////////////////////////////////////////////fin reset/////////////////////////////////////////////////
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == android.R.id.home)

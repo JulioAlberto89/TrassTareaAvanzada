@@ -24,6 +24,20 @@ public class EscribirFicheros {
         this.context = context;
     }
 
+    /*
+    public void escribirExterno(String carpeta, String fichero, String texto) {
+    File[] directorios = context.getExternalFilesDirs(null);
+    File directorioExterno = directorios[1];
+    String directorioExt = directorioExterno.getAbsolutePath();
+
+    if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+        escribirSD(directorioExt + File.separator + carpeta, fichero, texto);
+    } else {
+        Toast.makeText(context, "La memoria externa no está disponible", Toast.LENGTH_SHORT).show();
+    }
+    }
+
+     */
     public void escribirExterno(String carpeta, String fichero, String texto) {
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             escribirSD(carpeta, fichero, texto);

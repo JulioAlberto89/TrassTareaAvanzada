@@ -282,10 +282,20 @@ public class ListadoTareasActivity extends AppCompatActivity {
 
         //OPCION DESCRIPCIÓN
         if (itemId == R.id.item_descripcion) {
-            // Mostrar un cuadro de diálogo con la descripción de la tarea
+            // Mostrar un cuadro de diálogo con la descripción de la tarea y la URL del documento
             AlertDialog.Builder builder = new AlertDialog.Builder(ListadoTareasActivity.this);
             builder.setTitle(R.string.dialog_description);
-            builder.setMessage(tareaSeleccionada.getDescripcion());
+
+            // Obtén la URL del documento de la tarea
+            String urlDoc = tareaSeleccionada.getURL_doc();
+
+            // Crea el mensaje para el cuadro de diálogo
+            String message = tareaSeleccionada.getDescripcion();
+            if (urlDoc != null && !urlDoc.isEmpty()) {
+                message += "\n\nURL del documento: " + urlDoc;
+            }
+
+            builder.setMessage(message);
             builder.setPositiveButton(R.string.dialog_close, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -520,6 +530,7 @@ public class ListadoTareasActivity extends AppCompatActivity {
             }
         });
 
+        /*
         tareas.add(new Tarea("Hacer el cuestionario inicial", "10/09/2023", "17/09/2023", 100, true, ""));
         tareas.add(new Tarea("Hacer la tarea UT01", "18/09/2023", "03/10/2023", 100, true, ""));
         tareas.add(new Tarea("Hacer cuestionarios UT01", "18/09/2023", "01/10/2023", 100, false, ""));
@@ -550,6 +561,7 @@ public class ListadoTareasActivity extends AppCompatActivity {
                     "Vestibulum tincidunt maximus turpis, eget fermentum lectus iaculis non. Proin vulputate metus sed metus laoreet ultricies. Maecenas pulvinar lectus quis pretium rhoncus. Suspendisse eget dolor vel nisi aliquet condimentum id a erat. Donec rutrum sem."
             )
         );
+        */
         //Guardar las tareas de prueba
         // Inicializa la base de datos
         /*

@@ -58,7 +58,7 @@
             android:defaultValue="0"
             android:selectAllOnFocus="true"
             android:singleLine="true"
-            android:summary="0 días"
+            android:summary="%s días"
             android:key="limpieza_archivos"
             android:title="@string/preferences_almacenamiento_limpieza" />
         <SwitchPreference

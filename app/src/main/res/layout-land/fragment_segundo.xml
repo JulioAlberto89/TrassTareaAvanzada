@@ -61,11 +61,54 @@
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/bt_documentos"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="@string/btn_documento"
+        android:drawableStart="@drawable/baseline_document"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/bt_guardar"
+        app:layout_constraintStart_toEndOf="@+id/bt_guardar" />
+
+    <Button
+        android:id="@+id/bt_imagen"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/btn_imagen"
+        android:drawableStart="@drawable/baseline_image_search_24"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="@+id/bt_documentos"
+        app:layout_constraintTop_toBottomOf="@+id/bt_documentos" />
+
+    <Button
+        android:id="@+id/bt_audio"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/btn_audio"
+        android:drawableStart="@drawable/baseline_audio_file_24"
+        app:layout_constraintBottom_toTopOf="@+id/bt_video"
+        app:layout_constraintEnd_toEndOf="@+id/bt_imagen" />
+
+    <Button
+        android:id="@+id/bt_video"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/btn_video"
+        android:drawableStart="@drawable/baseline_slow_motion_video"
+        app:layout_constraintEnd_toEndOf="@+id/bt_audio"
+        app:layout_constraintTop_toTopOf="@+id/bt_volver" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.71" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
